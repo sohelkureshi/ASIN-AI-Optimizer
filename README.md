@@ -1,4 +1,3 @@
-text
 # Amazon Product Listing Optimizer
 
 An AI-powered web application that optimizes Amazon product listings using Gemini AI's model. Enter an ASIN, and the app fetches product details from Amazon, then uses AI to generate improved titles, bullet points, descriptions, and keyword suggestions.
@@ -312,5 +311,6 @@ MIT
 
 ## Author
 
-Developed as a demonstration of full-stack development with AI integration.#   A S I N - A I - O p t i m i z e r  
+Developed as a demonstration of full-stack development with AI integration.#   A S I N - A I - O p t i m i z e r 
+ 
  
