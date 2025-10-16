@@ -42,10 +42,6 @@ const api = {
     return await apiClient.get(`/products/history/${asin}`);
   },
 
-  // Get all optimization history
-  getAllHistory: async () => {
-    return await apiClient.get('/products/history');
-  },
 };
 
 export default api;

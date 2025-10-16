@@ -12,9 +12,6 @@ const api = {
     return await apiClient.get(`/products/history/${asin}`);
   },
 
-  getAllHistory: async () => {
-    return await apiClient.get('/products/history');
-  },
 };
 
 export default api;
