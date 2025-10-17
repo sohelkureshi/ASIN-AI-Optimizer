@@ -4,7 +4,7 @@ const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api
 
 const apiClient = axios.create({
   baseURL: API_BASE_URL,
-  timeout: 120000, // 60 seconds timeout for scraping and AI processing
+  timeout: 60000, // 60 seconds timeout for scraping and AI processing
   headers: {
     'Content-Type': 'application/json',
   },

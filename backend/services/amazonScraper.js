@@ -75,7 +75,7 @@
 //       console.log(`   Navigating to: ${url}`);
 //       await page.goto(url, { 
 //         waitUntil: 'networkidle2', 
-//         timeout: 120000 
+//         timeout: 60000 
 //       });
 
 //       // Wait for product title (works for all marketplaces)
@@ -287,7 +287,7 @@ class AmazonScraper {
       console.log('  Navigating to:', url);
       await page.goto(url, { 
         waitUntil: 'networkidle2', 
-        timeout: 120000 
+        timeout: 60000 
       });
 
       await page.waitForSelector('#productTitle, #title', { timeout: 10000 }).catch(() => {
