@@ -93,8 +93,6 @@ Or manually execute the SQL file.
 ```bash
 cd backend
 npm install
-
-
 ```
 
 **Create Backend .env Configuration**
@@ -109,20 +107,10 @@ GEMINI_AI_API_KEY=your_gemini_api_key
 ```
 
 Start the backend server:
-GEMINI_AI_API_KEY=your_gemini_api_key
-```
 
-Start the backend server:
 
 ```bash
 node server.js
-```
-
-For development with auto-reload:
-
-
-```bash
-npm run dev
 ```
 
 ---
@@ -160,19 +148,19 @@ Fetches product details from Amazon and optimizes using AI.
 
 **Request Body**
 
-```json
+
 ```json
 {
   "asin": "B08N5WRWNW"
   "asin": "B08N5WRWNW"
 }
-```
+
 ```
 
-**Response**
+
 **Response**
 
-```json
+
 ```json
 {
   "success": true,
