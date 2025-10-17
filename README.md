@@ -2,6 +2,10 @@
 
 An AI-powered web application that optimizes Amazon product listings using Gemini AI.  
 Enter an ASIN, and the app fetches product details from Amazon, then uses AI to generate improved titles, bullet points, descriptions, and keyword suggestions.
+
+refer live link :- https://asin-ai-optimizer.netlify.app/
+
+
 # Amazon Product Listing Optimizer (ASIN-AI-Optimizer)
 
 An AI-powered web application that optimizes Amazon product listings using Gemini AI.  
