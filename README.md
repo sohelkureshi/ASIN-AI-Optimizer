@@ -72,8 +72,6 @@ cd ASIN-AI-Optimizer
 ### 2. Database Setup
 
 ```bash
-
-```bash
 mysql -u root -p
 ```
 
@@ -84,7 +82,7 @@ source database/schema.sql
 ```
 
 Or manually execute the SQL file.
-```
+
 
 ---
 
