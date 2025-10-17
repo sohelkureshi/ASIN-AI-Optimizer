@@ -106,8 +106,7 @@ Start the backend server:
 node server.js
 ```
 check for :- 
--The server will run on [http://localhost:5000](http://localhost:5000) 
--MYsql database connected successfully.
+-The server will run on [http://localhost:5000](http://localhost:5000) & MYsql database connected successfully.
 
 ---
 
