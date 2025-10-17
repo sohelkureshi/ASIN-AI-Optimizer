@@ -105,6 +105,9 @@ Start the backend server:
 ```bash
 node server.js
 ```
+check for :- 
+-The server will run on [http://localhost:5000](http://localhost:5000) 
+-MYsql database connected successfully.
 
 ---
 
@@ -339,8 +342,7 @@ MIT License
 
 ## Author
 
-Developed by Sohel Kureshi
-A demonstration of full-stack development with AI integration.
+Developed by Sohel Kureshi, demonstration of full-stack development with AI integration.
 
 ---
 
