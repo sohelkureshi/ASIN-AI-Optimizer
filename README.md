@@ -59,13 +59,7 @@ refer live link :- https://asin-ai-optimizer.netlify.app/
 ```bash
 git clone https://github.com/sohelkureshi/ASIN-AI-Optimizer
 cd ASIN-AI-Optimizer
-````
-
----
-```bash
-git clone https://github.com/sohelkureshi/ASIN-AI-Optimizer
-cd ASIN-AI-Optimizer
-````
+```
 
 ---
 
