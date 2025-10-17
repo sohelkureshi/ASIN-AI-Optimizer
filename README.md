@@ -88,7 +88,6 @@ Or manually execute the SQL file.
 
 ### 3. Backend Setup
 
-```bash
 
 ```bash
 cd backend
