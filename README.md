@@ -147,7 +147,6 @@ Fetches product details from Amazon and optimizes using AI.
 ```json
 {
   "asin": "B08N5WRWNW"
-  "asin": "B08N5WRWNW"
 }
 
 ```
@@ -172,20 +171,7 @@ Fetches product details from Amazon and optimizes using AI.
     "description": "Enhanced persuasive description",
     "keywords": ["keyword1", "keyword2", "keyword3"]
   }
-  "success": true,
-  "id": 1,
-  "original": {
-    "asin": "B08N5WRWNW",
-    "title": "Original product title",
-    "bulletPoints": ["Point 1", "Point 2"],
-    "description": "Original description"
-  },
-  "optimized": {
-    "title": "Optimized keyword-rich title",
-    "bulletPoints": ["Improved point 1", "Improved point 2"],
-    "description": "Enhanced persuasive description",
-    "keywords": ["keyword1", "keyword2", "keyword3"]
-  }
+
 }
 ```
 
@@ -201,10 +187,6 @@ Retrieves optimization history for a specific ASIN.
 
 ```json
 {
-  "success": true,
-  "asin": "B08N5WRWNW",
-  "count": 5,
-  "history": [...]
   "success": true,
   "asin": "B08N5WRWNW",
   "count": 5,
