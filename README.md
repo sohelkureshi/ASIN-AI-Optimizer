@@ -83,7 +83,7 @@ You should see successful MySQL connection logs and the server on http://localho
 
 ### 4. Frontend Setup
 ```bash
-cd ../frontend
+cd frontend
 npm install
 ```
 
