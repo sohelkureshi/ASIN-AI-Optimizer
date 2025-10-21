@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/ASINInput.css'
+
 const ASINInput = ({ onOptimize, onViewHistory, loading }) => {
   const [asin, setAsin] = useState('');
   const [error, setError] = useState('');
@@ -90,13 +91,13 @@ const ASINInput = ({ onOptimize, onViewHistory, loading }) => {
           <h3> Supported Marketplaces are ...</h3>
           <div className="marketplace-links">
             <a href="https://www.amazon.com" target="_blank" rel="noopener noreferrer">
-              🇺🇸 Amazon.com (United States)
+              Amazon.com (United States)
             </a>
             <a href="https://www.amazon.in" target="_blank" rel="noopener noreferrer">
-              🇮🇳 Amazon.in (India)
+              Amazon.in (India)
             </a>
             <a href="https://www.amazon.co.uk" target="_blank" rel="noopener noreferrer">
-              🇬🇧 Amazon.co.uk (United Kingdom)
+              Amazon.co.uk (United Kingdom)
             </a>
           </div>
           <p className="auto-detect-text">The system will automatically detect and try all supported marketplaces.</p>
