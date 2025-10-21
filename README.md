@@ -1,315 +1,124 @@
 # Amazon Product Listing Optimizer (ASIN-AI-Optimizer)
 
-An AI-powered web application that optimizes Amazon product listings using Gemini AI.  
-Enter an ASIN, and the app fetches product details from Amazon, then uses AI to generate improved titles, bullet points, descriptions, and keyword suggestions.
-# Amazon Product Listing Optimizer (ASIN-AI-Optimizer)
+AI web app to fetch an Amazon product by ASIN and generate an improved title, five bullet points, a richer description, and keyword suggestions using Gemini. Data is saved in MySQL and you can view optimization history per ASIN.  
 
-An AI-powered web application that optimizes Amazon product listings using Gemini AI.  
-Enter an ASIN, and the app fetches product details from Amazon, then uses AI to generate improved titles, bullet points, descriptions, and keyword suggestions.
+Live demo: https://asin-ai-optimizer.netlify.app/
 
----
----
+***
 
 ## Features
+- Enter an ASIN to fetch product details with resilient scraping and fallbacks.  
+- Generate optimized title, 5 benefit-focused bullets, enhanced description, and 3–5 keywords in strict JSON.  
+- Side-by-side comparison of original vs optimized content.  
+- Optimization history per ASIN with timestamps and safe JSON parsing.  
+- Auto-detect marketplace (US → IN → UK), returns the detected marketplace.
 
-- ASIN-based product fetching – Enter any Amazon ASIN to fetch product details directly from Amazon.  
-- AI-powered optimization – Uses Gemini AI to generate:
-  - Keyword-rich and readable product titles  
-  - Clear and concise bullet points  
-  - Persuasive and compliant descriptions  
-  - 3–5 keyword suggestions for better SEO  
-- Side-by-side comparison – View original and optimized content together.  
-- Optimization history – Track all optimizations with timestamps for each ASIN.  
-- MySQL storage – All data is stored locally for historical analysis and tracking improvements.
-
----
-- ASIN-based product fetching – Enter any Amazon ASIN to fetch product details directly from Amazon.  
-- AI-powered optimization – Uses Gemini AI to generate:
-  - Keyword-rich and readable product titles  
-  - Clear and concise bullet points  
-  - Persuasive and compliant descriptions  
-  - 3–5 keyword suggestions for better SEO  
-- Side-by-side comparison – View original and optimized content together.  
-- Optimization history – Track all optimizations with timestamps for each ASIN.  
-- MySQL storage – All data is stored locally for historical analysis and tracking improvements.
-
----
+***
 
 ## Tech Stack
 
 ### Backend
-- Node.js with Express.js  
-- MySQL for database storage  
-- Puppeteer for web scraping Amazon product pages  
-- Cheerio for HTML parsing  
-- Gemini AI API for content optimization  
-- Node.js with Express.js  
-- MySQL for database storage  
-- Puppeteer for web scraping Amazon product pages  
-- Cheerio for HTML parsing  
-- Gemini AI API for content optimization  
+- Node.js, Express, mysql2/promise  
+- Puppeteer (dev) or puppeteer-core + @sparticuz/chromium (prod)  
+- Cheerio  
+- @google/generative-ai (model: gemini-2.0-flash-lite)
 
 ### Frontend
-- React (v18) for UI components  
-- Axios for API communication  
-- CSS3 for responsive design  
+- React 18  
+- Axios  
+- CSS
 
----
-- React (v18) for UI components  
-- Axios for API communication  
-- CSS3 for responsive design  
-
----
-
-## Project Structure
-
-```
-
-```
-
-amazon-listing-optimizer/
-├── backend/
-│   ├── config/
-│   │   └── database.js              # MySQL connection pool
-│   ├── controllers/
-│   │   └── productController.js     # Request handlers
-│   ├── models/
-│   │   └── Product.js               # Database queries
-│   ├── routes/
-│   │   └── productRoutes.js         # API routes
-│   ├── services/
-│   │   ├── amazonScraper.js         # Amazon scraping logic
-│   │   └── geminiService.js         # Gemini AI integration
-│   ├── middleware/
-│   │   └── errorHandler.js          # Error handling
-│   ├── .env.example
-│   ├── package.json
-│   └── server.js                    # Entry point
-│   ├── config/
-│   │   └── database.js              # MySQL connection pool
-│   ├── controllers/
-│   │   └── productController.js     # Request handlers
-│   ├── models/
-│   │   └── Product.js               # Database queries
-│   ├── routes/
-│   │   └── productRoutes.js         # API routes
-│   ├── services/
-│   │   ├── amazonScraper.js         # Amazon scraping logic
-│   │   └── geminiService.js         # Gemini AI integration
-│   ├── middleware/
-│   │   └── errorHandler.js          # Error handling
-│   ├── .env.example
-│   ├── package.json
-│   └── server.js                    # Entry point
-│
-├── frontend/
-│   ├── public/
-│   │   └── index.html
-│   ├── src/
-│   │   ├── components/
-│   │   │   ├── ASINInput.jsx        # ASIN input form
-│   │   │   ├── ComparisonView.jsx   # Side-by-side display
-│   │   │   └── HistoryList.jsx      # Optimization history
-│   │   ├── services/
-│   │   │   └── api.js               # API client
-│   │   ├── App.jsx
-│   │   ├── App.css
-│   │   └── index.js
-│   ├── .env.example
-│   └── package.json
-│   ├── public/
-│   │   └── index.html
-│   ├── src/
-│   │   ├── components/
-│   │   │   ├── ASINInput.jsx        # ASIN input form
-│   │   │   ├── ComparisonView.jsx   # Side-by-side display
-│   │   │   └── HistoryList.jsx      # Optimization history
-│   │   ├── services/
-│   │   │   └── api.js               # API client
-│   │   ├── App.jsx
-│   │   ├── App.css
-│   │   └── index.js
-│   ├── .env.example
-│   └── package.json
-│
-├── database/
-│   └── schema.sql                   # MySQL schema
-│
-└── README.md
-
-````
-
----
-
-````
-
----
+***
 
 ## Setup Instructions
 
 ### Prerequisites
-- Node.js (v16 or higher)
-- MySQL (v8 or higher)
-- Gemini AI API key
-
----
-
----
+- Node.js v16+  
+- MySQL v8+  
+- Gemini API key
 
 ### 1. Clone the Repository
 ```bash
 git clone https://github.com/sohelkureshi/ASIN-AI-Optimizer
 cd ASIN-AI-Optimizer
-````
-
----
-```bash
-git clone https://github.com/sohelkureshi/ASIN-AI-Optimizer
-cd ASIN-AI-Optimizer
-````
-
----
+```
 
 ### 2. Database Setup
-
-```bash
-
+Use the provided schema file:
 ```bash
 mysql -u root -p
-```
-
-Then run:
-```
-
-Then run:
-
-```bash
 source database/schema.sql
 ```
-
-Or manually execute the SQL file.
-```
-
-Or manually execute the SQL file.
-
----
----
+Or run equivalent SQL manually.
 
 ### 3. Backend Setup
-
-```bash
-
 ```bash
 cd backend
 npm install
-
-```
 ```
 
-**Create Backend .env Configuration**
-**Create Backend .env Configuration**
-
-```
+#### Create Backend .env Configuration
 ```
 PORT=5000
+# EITHER single connection string:
+DATABASE_URL=mysql://user:pass@host:3306/amazon_optimizer
+# OR discrete variables:
 DB_HOST=localhost
+DB_PORT=3306
 DB_USER=root
 DB_PASSWORD=your_mysql_password
 DB_NAME=amazon_optimizer
-GEMINI_AI_API_KEY=your_gemini_api_key
+
+# CORS allow-list for your frontend:
+FRONTEND_URL=http://localhost:3000
+
+# Gemini:
+GEMINI_API_KEY=your_gemini_api_key
 ```
 
-Start the backend server:
-GEMINI_AI_API_KEY=your_gemini_api_key
-```
-
-Start the backend server:
-
+Start the backend:
 ```bash
 node server.js
 ```
-```bash
-node server.js
-```
-
-For development with auto-reload:
-For development with auto-reload:
-
-```bash
-```bash
-npm run dev
-```
-```
-
----
----
+You should see successful MySQL connection logs and the server on http://localhost:5000.
 
 ### 4. Frontend Setup
-
-```bash
-
 ```bash
 cd frontend
 npm install
 ```
 
-**Create Frontend .env Configuration**
-
-```
-```
-
-**Create Frontend .env Configuration**
-
+#### Create Frontend .env Configuration
 ```
 REACT_APP_API_URL=http://localhost:5000/api
 ```
 
-Start the frontend server:
-```
-
-Start the frontend server:
-
-```bash
+Start the frontend:
 ```bash
 npm start
 ```
-```
+Opens at http://localhost:3000.
 
-The application will open at [http://localhost:3000](http://localhost:3000)
-The application will open at [http://localhost:3000](http://localhost:3000)
-
----
----
+***
 
 ## API Endpoints
 
 ### POST /api/products/optimize
-
-Fetches product details from Amazon and optimizes using AI.
-
-**Request Body**
-
-Fetches product details from Amazon and optimizes using AI.
-
-**Request Body**
-
-```json
+Fetches product details by ASIN and generates optimized content.  
+Request:
 ```json
 {
-  "asin": "B08N5WRWNW"
-  "asin": "B08N5WRWNW"
+  "asin": "B08N5WRWNW",
+  "marketplace": null
 }
 ```
-```
-
-**Response**
-**Response**
-
-```json
+Note: marketplace is optional; null/omit to auto-detect (US → IN → UK).  
+Response (shape):
 ```json
 {
   "success": true,
-  "id": 1,
+  "id": 123,
+  "marketplace": "US",
   "original": {
     "asin": "B08N5WRWNW",
     "title": "Original product title",
@@ -318,286 +127,102 @@ Fetches product details from Amazon and optimizes using AI.
   },
   "optimized": {
     "title": "Optimized keyword-rich title",
-    "bulletPoints": ["Improved point 1", "Improved point 2"],
-    "description": "Enhanced persuasive description",
-    "keywords": ["keyword1", "keyword2", "keyword3"]
-  }
-  "success": true,
-  "id": 1,
-  "original": {
-    "asin": "B08N5WRWNW",
-    "title": "Original product title",
-    "bulletPoints": ["Point 1", "Point 2"],
-    "description": "Original description"
-  },
-  "optimized": {
-    "title": "Optimized keyword-rich title",
-    "bulletPoints": ["Improved point 1", "Improved point 2"],
+    "bulletPoints": ["Improved 1", "Improved 2", "Improved 3", "Improved 4", "Improved 5"],
     "description": "Enhanced persuasive description",
     "keywords": ["keyword1", "keyword2", "keyword3"]
   }
 }
 ```
-```
-
----
----
 
 ### GET /api/products/history/:asin
-
-Retrieves optimization history for a specific ASIN.
-
-**Response**
-
-Retrieves optimization history for a specific ASIN.
-
-**Response**
-
-```json
+Returns optimization history for an ASIN with parsed arrays.  
+Response (shape):
 ```json
 {
   "success": true,
   "asin": "B08N5WRWNW",
   "count": 5,
-  "history": [...]
-  "success": true,
-  "asin": "B08N5WRWNW",
-  "count": 5,
-  "history": [...]
+  "history": [ ... ]
 }
 ```
-```
 
----
----
+***
 
 ## Gemini AI Prompt Strategy
 
 ### System Prompt
-
-
 You are an expert Amazon product listing optimizer. Always respond with valid JSON format.
 
 ### User Prompt Structure
+- Context: Defines the role as Amazon listing expert.  
+- Input: Original title, bullet points, and description.  
+- Task: Create improved title (≤200 chars), 5 clear benefit-focused bullets, a 200–300 word description, and 3–5 keywords.  
+- Output: Strict JSON with keys optimizedTitle, optimizedBulletPoints, optimizedDescription, keywords.  
+- Notes: The service trims code fences, extracts JSON, validates shape, pads bullets/keywords if short, and has a safe fallback if JSON parsing fails.
 
-1. Context Setting – Defines role as Amazon listing expert
-2. Input Data – Provides original title, bullet points, and description
-3. Task Definition – Specifies:
-
-   * Improved title (max 200 chars, keyword-rich)
-   * 5 rewritten bullet points (clear, benefit-focused)
-   * Enhanced description (200–300 words)
-   * 3–5 keyword suggestions
-4. Output Format – JSON for consistent parsing
-
-1. Context Setting – Defines role as Amazon listing expert
-2. Input Data – Provides original title, bullet points, and description
-3. Task Definition – Specifies:
-
-   * Improved title (max 200 chars, keyword-rich)
-   * 5 rewritten bullet points (clear, benefit-focused)
-   * Enhanced description (200–300 words)
-   * 3–5 keyword suggestions
-4. Output Format – JSON for consistent parsing
-
----
-
-## Why This Approach Works
-
-* Structured output ensures easy parsing
-* Clear constraints improve response quality
-* Follows Amazon’s guidelines
-* Focused on SEO and readability
-* Highlights customer benefits instead of only features
-
----
----
-
-## Why This Approach Works
-
-* Structured output ensures easy parsing
-* Clear constraints improve response quality
-* Follows Amazon’s guidelines
-* Focused on SEO and readability
-* Highlights customer benefits instead of only features
-
----
+***
 
 ## Database Schema
 
 ### product_optimizations Table
 
-| Column                  | Type                              | Description                  |
-| ----------------------- | --------------------------------- | ---------------------------- |
-| id                      | INT (Primary Key, Auto Increment) | Primary key                  |
-| asin                    | VARCHAR(10)                       | Amazon product identifier    |
-| original_title          | TEXT                              | Original product title       |
-| original_bullet_points  | JSON                              | Original bullet points       |
-| original_description    | TEXT                              | Original description         |
-| optimized_title         | TEXT                              | AI-generated title           |
-| optimized_bullet_points | JSON                              | AI-generated bullet points   |
-| optimized_description   | TEXT                              | AI-enhanced description      |
-| keywords                | JSON                              | AI-suggested keywords        |
-| created_at              | TIMESTAMP                         | Auto-generated on insert     |
-| updated_at              | TIMESTAMP                         | Auto-updated on modification |
+| Column                    | Type           | Description                         |
+|--------------------------|----------------|-------------------------------------|
+| id                       | INT (PK, AI)   | Primary key                         |
+| asin                     | VARCHAR(10)    | Amazon product identifier           |
+| original_title           | TEXT           | Original product title              |
+| original_bullet_points   | JSON           | Original bullet points              |
+| original_description     | TEXT           | Original description                |
+| optimized_title          | TEXT           | AI-generated title                  |
+| optimized_bullet_points  | JSON           | AI-generated bullet points          |
+| optimized_description    | TEXT           | AI-enhanced description             |
+| keywords                 | JSON           | AI-suggested keywords               |
+| created_at               | TIMESTAMP      | Auto-generated on insert            |
+| updated_at               | TIMESTAMP      | Auto-updated on modification        |
 
 Indexes:
+- idx_asin for fast ASIN lookups  
+- idx_created_at for sorting
 
-* idx_asin for fast ASIN lookups
-* idx_created_at for chronological sorting
+***
 
----
-
-| Column                  | Type                              | Description                  |
-| ----------------------- | --------------------------------- | ---------------------------- |
-| id                      | INT (Primary Key, Auto Increment) | Primary key                  |
-| asin                    | VARCHAR(10)                       | Amazon product identifier    |
-| original_title          | TEXT                              | Original product title       |
-| original_bullet_points  | JSON                              | Original bullet points       |
-| original_description    | TEXT                              | Original description         |
-| optimized_title         | TEXT                              | AI-generated title           |
-| optimized_bullet_points | JSON                              | AI-generated bullet points   |
-| optimized_description   | TEXT                              | AI-enhanced description      |
-| keywords                | JSON                              | AI-suggested keywords        |
-| created_at              | TIMESTAMP                         | Auto-generated on insert     |
-| updated_at              | TIMESTAMP                         | Auto-updated on modification |
-
-Indexes:
-
-* idx_asin for fast ASIN lookups
-* idx_created_at for chronological sorting
-
----
 
 ## Technical Choices
-## Technical Choices
+- Scraper auto-detects US → IN → UK and returns the first successful marketplace.  
+- Multiple selectors for title, bullets, and description; generic bullets are added if none found.  
+- Production uses puppeteer-core + @sparticuz/chromium and blocks images, stylesheets, fonts, and media to reduce load and timeouts.  
+- MySQL pool supports DATABASE_URL or discrete env vars; arrays stored in JSON columns.
 
-### Puppeteer for Web Scraping
-
-* Handles dynamic content rendering
-* Mimics real browser behavior
-* More reliable than simple HTTP scraping
-
-### MySQL Database
-
-* Structured and ACID-compliant
-* JSON support for flexible data
-* Indexing for faster lookups
-### Puppeteer for Web Scraping
-
-* Handles dynamic content rendering
-* Mimics real browser behavior
-* More reliable than simple HTTP scraping
-
-### MySQL Database
-
-* Structured and ACID-compliant
-* JSON support for flexible data
-* Indexing for faster lookups
-
-### Gemini AI
-
-* Cost-effective and fast
-* Produces consistent JSON output
-
-### React Frontend
-
-* Reusable components
-* Smooth and responsive UI
-* Easy state management
-
-### Express.js Backend
-
-* Lightweight and simple
-* Easy to add middleware and routes
-
----
-### Gemini AI
-
-* Cost-effective and fast
-* Produces consistent JSON output
-
-### React Frontend
-
-* Reusable components
-* Smooth and responsive UI
-* Easy state management
-
-### Express.js Backend
-
-* Lightweight and simple
-* Easy to add middleware and routes
-
----
+***
 
 ## Usage
+1) Enter a valid 10-character ASIN (e.g., B08N5WRWNW).  
+2) Click “Optimize Listing” to fetch and enhance.  
+3) Compare original vs optimized content side by side.  
+4) Open “History” to see past runs with timestamps.
 
-1. Enter a valid 10-character ASIN (e.g., B08N5WRWNW)
-2. Click "Optimize Listing" to fetch and enhance the product
-3. Compare original and optimized content
-4. View past optimizations with timestamps
-5. Track improvements over time
-
----
+***
 
 ## Limitations
+- Scraping depends on Amazon HTML; changes can affect extraction.  
+- Gemini can return non-JSON; the service cleans and validates and uses a safe fallback if parsing fails.  
+- Supported marketplaces: US, IN, UK only at present.
 
-* Amazon HTML structure changes may affect scraping
-* Gemini AI API has rate limits
-* Works only with valid Amazon.com ASINs
-* Check Amazon’s Terms of Service for scraping rules
-
----
-1. Enter a valid 10-character ASIN (e.g., B08N5WRWNW)
-2. Click "Optimize Listing" to fetch and enhance the product
-3. Compare original and optimized content
-4. View past optimizations with timestamps
-5. Track improvements over time
-
----
-
-## Limitations
-
-* Amazon HTML structure changes may affect scraping
-* Gemini AI API has rate limits
-* Works only with valid Amazon.com ASINs
-* Check Amazon’s Terms of Service for scraping rules
-
----
+***
 
 ## Future Enhancements
+- Add more marketplaces (JP/DE/FR, etc.).  
+- Bulk ASIN processing and export (CSV/PDF).  
+- A/B testing and SEO score comparisons.
 
-* Add support for multiple Amazon marketplaces
-* Add A/B testing tracking
-* Add bulk ASIN processing
-* Generate SEO score comparisons
-* Export optimizations to CSV or PDF
-
----
-* Add support for multiple Amazon marketplaces
-* Add A/B testing tracking
-* Add bulk ASIN processing
-* Generate SEO score comparisons
-* Export optimizations to CSV or PDF
-
----
+***
 
 ## License
+MIT
 
-MIT License
-
----
-MIT License
-
----
+***
 
 ## Author
-
-Developed by Sohel Kureshi
-A demonstration of full-stack development with AI integration.
-
----
-
-
+Sohel Kureshi
 
 
