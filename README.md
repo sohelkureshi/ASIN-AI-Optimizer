@@ -1,6 +1,7 @@
 # Amazon Product Listing Optimizer (ASIN-AI-Optimizer)
 
 AI web app to fetch an Amazon product by ASIN and generate an improved title, five bullet points, a richer description, and keyword suggestions using Gemini. Data is saved in MySQL and you can view optimization history per ASIN.  
+
 Live demo: https://asin-ai-optimizer.netlify.app/
 
 ***
@@ -164,23 +165,27 @@ You are an expert Amazon product listing optimizer. Always respond with valid JS
 ## Database Schema
 
 ### product_optimizations Table
-- id (INT, PK, auto-increment)  
-- asin (VARCHAR(10))  
-- original_title (TEXT)  
-- original_bullet_points (JSON)  
-- original_description (TEXT)  
-- optimized_title (TEXT)  
-- optimized_bullet_points (JSON)  
-- optimized_description (TEXT)  
-- keywords (JSON)  
-- created_at (TIMESTAMP)  
-- updated_at (TIMESTAMP)
 
-Indexes:  
+| Column                    | Type           | Description                         |
+|--------------------------|----------------|-------------------------------------|
+| id                       | INT (PK, AI)   | Primary key                         |
+| asin                     | VARCHAR(10)    | Amazon product identifier           |
+| original_title           | TEXT           | Original product title              |
+| original_bullet_points   | JSON           | Original bullet points              |
+| original_description     | TEXT           | Original description                |
+| optimized_title          | TEXT           | AI-generated title                  |
+| optimized_bullet_points  | JSON           | AI-generated bullet points          |
+| optimized_description    | TEXT           | AI-enhanced description             |
+| keywords                 | JSON           | AI-suggested keywords               |
+| created_at               | TIMESTAMP      | Auto-generated on insert            |
+| updated_at               | TIMESTAMP      | Auto-updated on modification        |
+
+Indexes:
 - idx_asin for fast ASIN lookups  
 - idx_created_at for sorting
 
 ***
+
 
 ## Technical Choices
 - Scraper auto-detects US → IN → UK and returns the first successful marketplace.  
@@ -219,3 +224,5 @@ MIT
 
 ## Author
 Sohel Kureshi
+
+
